@@ -11,13 +11,16 @@ import app.poderes.hechizos.Hechizo;
  */
 public class Wizard extends Persona {
 
-    public String escoba; //llamar a la lista escoba
-    
+    public String escoba; // llamar a la lista escoba
+
     public List<Artefacto> artefactos = new ArrayList<Artefacto>();
+
     public List<Hechizo> hechizos = new ArrayList<Hechizo>();
 
     public boolean esMagoOscuro = false;
 
-    
-    
+    public Wizard(String nombre) {
+        super(nombre);
+
+    }
 }

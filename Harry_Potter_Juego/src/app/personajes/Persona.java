@@ -5,5 +5,10 @@ package app.personajes;
  */
 public class Persona extends Personaje {
 
+    public Persona(String nombre) {
+        super(nombre);
+        
+    }
+
     
 }

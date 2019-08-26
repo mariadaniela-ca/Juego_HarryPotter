@@ -5,5 +5,11 @@ package app.artefactos;
  */
 public class PiedraDeResureccion extends Artefacto {
 
-    
+    public PiedraDeResureccion(String nombre) {
+        super(nombre);
+        
+    }
+
+   
+
 }

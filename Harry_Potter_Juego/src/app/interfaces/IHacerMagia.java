@@ -1,10 +1,12 @@
 package app.interfaces;
 
+
 /**
  * IHacerMagia
  */
-public interface IHacerMagia {
+public class IHacerMagia {
 
-    
-    
+    public Object getPoderInicial() {
+        return null;
+    }
 }

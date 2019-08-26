@@ -1,7 +1,22 @@
 package app;
 
+import java.util.Scanner;
+import app.poderes.hechizos.Hechizo;
+
+
 public class App {
-    public static void main(String[] args) throws Exception {
-        System.out.println("Hello Java");
+    public static Scanner Teclado = new Scanner (System.in);
+        
+    
+    public static void main(String[] args) {
+        
+        JuegoHarryPotter juego = new JuegoHarryPotter();
+        juego.cargarPersonajes();
+        
+        Hechizo.escogerHechizo();
+        Hechizo.buscarHechizo();
+
+
+
     }
 }
