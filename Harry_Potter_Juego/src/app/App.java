@@ -16,7 +16,7 @@ public class App {
 
         Hechizo.cargarHechizos();
         Hechizo.escogerHechizo();
-        
+
 
 
 

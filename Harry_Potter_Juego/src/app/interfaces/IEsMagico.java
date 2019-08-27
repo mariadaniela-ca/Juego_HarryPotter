@@ -5,5 +5,5 @@ package app.interfaces;
  */
 public interface IEsMagico {
 
-    
+    public boolean esMagico();
 }
