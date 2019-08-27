@@ -1,12 +1,12 @@
 package app.artefactos;
 
 /**
- * Horocrux
+ * Horrocrux
  */
 public class Horrocrux extends Artefacto {
 
-    public Horrocrux(String nombre) {
-        super(nombre);
+    public Horrocrux(String n) {
+        super(n);
         
     }
 

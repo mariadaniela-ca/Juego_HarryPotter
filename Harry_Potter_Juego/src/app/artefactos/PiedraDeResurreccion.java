@@ -2,24 +2,20 @@ package app.artefactos;
 
 import app.interfaces.IReliquiaMuerte;
 
-
 /**
- * CapaDeInvisibilidad
+ * PiedraDeResurreccion
  */
-public class CapaDeInvisibilidad extends Reliquia implements IReliquiaMuerte{
+public class PiedraDeResurreccion extends Artefacto implements IReliquiaMuerte{
 
-    public CapaDeInvisibilidad(String n) {
+    public PiedraDeResurreccion(String n) {
         super(n);
-      
         
     }
 
- 
     public boolean esReliquia() {
         return true;
+
     }
 
     
-    
-   
 }

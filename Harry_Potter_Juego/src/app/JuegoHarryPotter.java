@@ -45,33 +45,28 @@ public class JuegoHarryPotter {
         personaje.edad = 47;
         personaje.esMagoOscuro = true;
         personaje.numeroPersonajeSeleccionado = 4;
-
+        wizards.add(personaje);
 
     }
 
-    public void escogerJugador(){
-        System.out.println("Escoger numero de jugador");
-        for (Wizard w : this.wizards) {
+    public void mostrarPersonajes() {
+        for (Wizard w : wizards) {
             System.out.println(w.numeroPersonajeSeleccionado + " " + w.nombre);
-            
+
         }
-        int n;
-        n = Teclado.nextInt();
-
-        switch (n) {
-            case 1:
-            System.out.println("Tu personaje es: " );
-                
-                break;
-        
-            default:
-                break;
-        }
-
-        
-
-
-
     }
+
+    public Wizard seleccionarJugador(int numero) {
+
+        for (Wizard v : wizards) {
+
+            if (numero == v.numeroPersonajeSeleccionado) {
+                return v;
+            }
+
+        }
+        return null;
+    }
+    
 
 }
