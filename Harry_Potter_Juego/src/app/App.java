@@ -12,9 +12,11 @@ public class App {
         
         JuegoHarryPotter juego = new JuegoHarryPotter();
         juego.cargarPersonajes();
-        
+        juego.escogerJugador();
+
+        Hechizo.cargarHechizos();
         Hechizo.escogerHechizo();
-        Hechizo.buscarHechizo();
+        
 
 
 

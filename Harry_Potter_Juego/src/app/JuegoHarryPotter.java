@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import app.personajes.Wizard;
-import app.poderes.hechizos.Hechizo;
 
 /**
  * JuegoHarryPotter
@@ -13,7 +12,8 @@ import app.poderes.hechizos.Hechizo;
  * @param <Hechizo>
  */
 public class JuegoHarryPotter {
-    
+
+    public static String jugador;
     public Scanner Teclado = new Scanner(System.in);
 
     public List<Wizard> wizards = new ArrayList<Wizard>();
@@ -39,9 +39,9 @@ public class JuegoHarryPotter {
         wizards.add(personaje);
 
         personaje = new Wizard("Bellatrix Lestrange");
-        personaje.edad= 47;
-        personaje.esMagoOscuro= true;
-        personaje.numeroPersonajeSeleccionado= 4;
+        personaje.edad = 47;
+        personaje.esMagoOscuro = true;
+        personaje.numeroPersonajeSeleccionado = 4;
         wizards.add(personaje);
 
     }
@@ -58,71 +58,26 @@ public class JuegoHarryPotter {
 
         switch (numero) {
         case 1:
-            System.out.println("Su jugador es Harry Potter");
-            
+           
+            jugador = "Harry Potter";
             break;
 
         case 2:
-            System.out.println("Su jugador es Ron");
             
+            jugador = "Ron Weasley";
             break;
         case 3:
-            System.out.println("Su jugador es Hermione");
             
+            jugador = "Hermione Granger";
             break;
-
+        case 4:
+           
+            jugador = "Bellatrix Lestrange";
+            break;
         default:
             break;
         }
-    }
-
-    public Hechizo buscarHechizo(int numero) {
-        for (Hechizo h : Hechizo.hechizos) {
-            if (numero==h.numeroHechizo){
-                return h;
-            }
-        }
-        return null;
-    }
-
-    public Wizard buscarPersonaje(int numero){
-        for (Wizard w : wizards){
-            if (numero  == w.numero){
-                return w;
-            }
-        }
-        return null;
-    }
-
-    public void escogerHechizos() {
-        System.out.println("Los hechizos son:");
-        for (Hechizo h: Hechizo.hechizos){
-            System.out.println(h.numeroHechizo+ " "+h.nombre);
-            }
-        System.out.println("Indica en números qué hechizos quieres (Solo puedes 3)");
-
-        int numero;
-        for (int i = 0; i < 3; i++) {
-            numero = Teclado.nextInt();
-
-            Hechizo hechizoSeleccionado = buscarHechizo(numero);
-            if(hechizoSeleccionado != null)
-            {
-                
-            }
-            else{
-                System.out.println("Ingrese un número válido");
-            }
-
-
-
-               
-        }
-
-
-
-
-
 
     }
+
 }
