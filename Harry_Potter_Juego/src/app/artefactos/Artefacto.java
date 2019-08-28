@@ -2,15 +2,18 @@ package app.artefactos;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import app.interfaces.IEsMagico;
 import app.interfaces.IReliquiaMuerte;
+
 
 /**
  * Artefacto
  */
 public class Artefacto implements IEsMagico {
 
+    public Scanner Teclado = new Scanner (System.in);
     public String nombre;
 
     public Artefacto(String n) {
@@ -63,20 +66,60 @@ public class Artefacto implements IEsMagico {
 
     
     public void mostrarArtefactos() {
-        System.out.println("Los artefactos son:");
-        for (Artefacto a : this.artefactos) {
+        System.out.println("Tenemos 2 tipos de artefactos: \n 1 Reliquias de la Muerte \n 2 Artefactos mágicos comunes");}
+    
+    public void escogerTipoArtefacto(){
 
-            System.out.println(" " + a.numeroDeArtefacto + "  " + a.nombre + "\n     Amplificador de Salud : "
-                    + a.amplificadorDeSalud + "\n     Amplificador de Daño: " + a.amplificadorDeDaño);
+System.out.println("Escoge un tipo de artefacto:");
+int numero;
+numero = Teclado.nextInt();
 
-        }
+if (numero == 1) {
+    System.out.println("Indica el número de tu Reliquia de la Muerte:");
+    List<Artefacto> listaReliquias = buscarReliquia();
+    for (Artefacto r : listaReliquias) {
+        System.out.println(r.numeroDeArtefacto+ " "+r.nombre);
+        
+    }
+    
+} else {
+    System.out.println("Indica el número de tu Artefacto mágico:");
+    List<Artefacto> listaComunes = buscarArtefacto();
+    for (Artefacto c : listaComunes){
+        System.out.println(c.numeroDeArtefacto+ " "+c.nombre);
+        
+    }
+}
+
     }
 
-    public Artefacto escogerArtefacto() {
-        
+    public List<Artefacto> buscarReliquia() {
+        List<Artefacto> listaReliquias = new ArrayList<>();
+
+        for (Artefacto r : artefactos){
+            if (r instanceof IReliquiaMuerte) {
+                listaReliquias.add(r);
+                
+            }
+            
         }
-        
+        return listaReliquias;
+        }
+
+    public List<Artefacto> buscarArtefacto(){
+        List<Artefacto> listaComunes = new ArrayList<>();
+
+        for (Artefacto c : artefactos) {
+            if (c instanceof Artefacto) {
+                listaComunes.add(c);
+                
+            }
+            
+        }
+        return listaComunes;
     }
+        
+    
 
     public boolean esInvisibleAMuggles() {
         return false;
@@ -105,3 +148,9 @@ public class Artefacto implements IEsMagico {
         return true;
     }
 }
+
+
+
+
+/* System.out.println(" " + a.numeroDeArtefacto + "  " + a.nombre + "\n     Amplificador de Salud : "
+                    + a.amplificadorDeSalud + "\n     Amplificador de Daño: " + a.amplificadorDeDaño); */
