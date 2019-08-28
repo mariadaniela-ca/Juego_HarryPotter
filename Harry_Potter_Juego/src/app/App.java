@@ -16,14 +16,17 @@ public class App {
         int numeroArtefacto;
 
         JuegoHarryPotter juegoNuevo = new JuegoHarryPotter();
-
-        juegoNuevo.cargarJugadores();
-
-        System.out.println("Escoge tu jugador");
-
         juegoNuevo.mostrarPersonajes();
+        juegoNuevo.cargarPersonaje();
+        juegoNuevo.seleccionarTipoPersonaje();
+        juegoNuevo.buscarWizard();
+        juegoNuevo.buscarCriatura();
+        juegoNuevo.buscarElfo();
+        juegoNuevo.buscarMuggle();
 
-        numeroJugador = Teclado.nextInt();
+        
+
+        /*numeroJugador = Teclado.nextInt();
 
         Wizard nuevoJugador = juegoNuevo.seleccionarJugador(numeroJugador);
 
@@ -56,6 +59,6 @@ public class App {
             System.out.println(i);
         }
 
-        System.out.println("MORISTE! ADIOS! ");
+        System.out.println("MORISTE! ADIOS! ");*/
     }
 }

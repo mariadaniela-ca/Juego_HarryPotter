@@ -5,10 +5,11 @@ package app.personajes;
  */
 public class Criatura extends Personaje {
 
+    public int nivelDeDaño;
+
     public Criatura(String nombre) {
         super(nombre);
-       
+
     }
 
-    
 }
