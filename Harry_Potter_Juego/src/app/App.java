@@ -62,6 +62,7 @@ public class App {
 
             IHacerMagia nuevoSerMagico = ((IHacerMagia)nuevoP);
             System.out.println("Es hora de aprender hechizos!");
+            nuevoSerMagico.aprender(h);
                    
             
             // for (int i = nuevoP.salud; i >= 0; i--) {}
