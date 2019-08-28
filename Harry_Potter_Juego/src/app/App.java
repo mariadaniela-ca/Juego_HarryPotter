@@ -26,7 +26,7 @@ public class App {
 
         
 
-        /*numeroJugador = Teclado.nextInt();
+        numeroJugador = Teclado.nextInt();
 
         Wizard nuevoJugador = juegoNuevo.seleccionarJugador(numeroJugador);
 
@@ -42,7 +42,7 @@ public class App {
         System.out.println("Escoge un artefacto mágico: ");
 
         Artefacto nuevos = new Artefacto();
-        nuevos.agregarReliquia();
+        nuevos.agregarArtefacto();
 
         nuevos.mostrarArtefactos();
         numeroArtefacto = Teclado.nextInt();
@@ -59,6 +59,6 @@ public class App {
             System.out.println(i);
         }
 
-        System.out.println("MORISTE! ADIOS! ");*/
+        System.out.println("MORISTE! ADIOS! ");
     }
 }
