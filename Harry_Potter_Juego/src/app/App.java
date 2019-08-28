@@ -2,63 +2,80 @@ package app;
 
 import java.util.Scanner;
 
-import app.artefactos.Artefacto;
-import app.personajes.Wizard;
-
+import app.interfaces.IHacerMagia;
+import app.personajes.Personaje;
+import app.poderes.hechizos.Hechizo;
 
 public class App {
     public static Scanner Teclado = new Scanner(System.in);
 
     public static void main(String[] args) {
 
-        int numeroJugador;
+        /*
+         * int numeroJugador; int oponente; int numeroArtefacto;
+         */ int tipoPersonaje;
+        int numeroPersonaje;
+        int tipoOponente;
         int oponente;
-        int numeroArtefacto;
 
         JuegoHarryPotter juegoNuevo = new JuegoHarryPotter();
-        juegoNuevo.mostrarPersonajes();
+
         juegoNuevo.cargarPersonaje();
-        juegoNuevo.seleccionarTipoPersonaje();
-        juegoNuevo.buscarWizard();
-        juegoNuevo.buscarCriatura();
-        juegoNuevo.buscarElfo();
-        juegoNuevo.buscarMuggle();
 
-        
+        System.out.println("    Tenemos 4 tipos de personajes: 1 wizards 2 Criaturas 3 Elfos 4 Muggles");
 
-        numeroJugador = Teclado.nextInt();
+        System.out.println("    Escoge el numero del tipo personaje: ");
 
-        Wizard nuevoJugador = juegoNuevo.seleccionarJugador(numeroJugador);
+        tipoPersonaje = Teclado.nextInt();
 
-        System.out.println(nuevoJugador.nombre + " " + nuevoJugador.salud);
+        juegoNuevo.seleccionarTipoPersonaje(tipoPersonaje);
 
-        System.out.println("Escoge a tu oponente");
+        System.out.println("    Escoge el numero de tu personaje");
+
+        numeroPersonaje = Teclado.nextInt();
+
+        Personaje nuevoP = juegoNuevo.crearPersonaje(numeroPersonaje);
+
+        System.out.println("    Escoge el tipo de oponente: ");
+
+        tipoOponente = Teclado.nextInt();
+
+        juegoNuevo.seleccionarTipoPersonaje(tipoOponente);
+
+        System.out.println("    Escoge el numero de tu oponente");
+
         oponente = Teclado.nextInt();
 
-        Wizard otroWizard = juegoNuevo.seleccionarJugador(oponente);
+        Personaje oponenteP = juegoNuevo.crearPersonaje(oponente);
 
-        System.out.println("Tu oponente es: " + otroWizard.nombre);
+        System.out.println("    Tu oponente es: " + oponenteP.nombre);
 
-        System.out.println("Escoge un artefacto mágico: ");
+        Hechizo hechizos = new Hechizo();
+        hechizos.cargarHechizos();
 
-        Artefacto nuevos = new Artefacto();
-        nuevos.agregarArtefacto();
 
-        nuevos.mostrarArtefactos();
-        numeroArtefacto = Teclado.nextInt();
 
-        Artefacto otro = nuevos.escogerArtefacto(numeroArtefacto);
 
-        System.out.println("Escogiste: " + otro.nombre);
 
-        for (int i = nuevoJugador.salud; i >= 0; i--) {
 
-            nuevoJugador.salud = nuevoJugador.salud - otro.amplificadorDeDaño;
-            nuevoJugador.salud = nuevoJugador.salud + 2;
-            i = nuevoJugador.salud;
-            System.out.println(i);
+        if (nuevoP instanceof IHacerMagia) {
+
+            IHacerMagia nuevoSerMagico = ((IHacerMagia)nuevoP);
+            System.out.println("Es hora de aprender hechizos!");
+                   
+            
+            // for (int i = nuevoP.salud; i >= 0; i--) {}
+
+        } else {
+
+            System.out.println("    Tu personaje " + nuevoP.nombre + " está implorando piedad");
+            System.out.println("    ...");
+            System.out.println("    ...");
+            System.out.println("    ...");
+            System.out.println("    " + nuevoP.nombre + " murió.");
+
         }
 
-        System.out.println("MORISTE! ADIOS! ");
     }
+
 }
