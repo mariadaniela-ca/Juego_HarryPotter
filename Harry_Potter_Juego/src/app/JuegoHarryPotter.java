@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import app.interfaces.IHacerMagia;
 import app.personajes.Criatura;
-import app.personajes.Elfo;
+
 import app.personajes.Muggle;
 import app.personajes.Personaje;
 import app.personajes.Wizard;
@@ -55,15 +56,13 @@ public class JuegoHarryPotter {
         criatura.numeroPersonajeSeleccionado = 6;
         personajes.add(criatura);
 
-        Elfo elfo = new Elfo("Dobby");
-        elfo.nivelDeDaño = 50;
-        elfo.numeroPersonajeSeleccionado = 7;
-        personajes.add(elfo);
-
-        elfo = new Elfo("Kreacher");
-        elfo.nivelDeDaño = 40;
-        elfo.numeroPersonajeSeleccionado = 8;
-        personajes.add(criatura);
+        /*
+         * Elfo elfo = new Elfo("Dobby"); elfo.nivelDeDaño = 50;
+         * elfo.numeroPersonajeSeleccionado = 7; personajes.add(elfo);
+         * 
+         * elfo = new Elfo("Kreacher"); elfo.nivelDeDaño = 40;
+         * elfo.numeroPersonajeSeleccionado = 8; personajes.add(criatura);
+         */
 
         Muggle muggle = new Muggle("Vernon Dursley");
         muggle.edad = 46;
@@ -77,16 +76,9 @@ public class JuegoHarryPotter {
 
     }
 
-    public void mostrarPersonajes(){
-        System.out.println("Tenemos 4 tipos de personajes:\n 1 Wizards\n 2 Criaturas\n 3 Elfos\n 4 Muggles\n" );
-        
-    }
-    public void seleccionarTipoPersonaje() {
-        System.out.println("Indica qué tipo de personaje quieres:");
-        int i;
-        i = Teclado.nextInt();
+    public void seleccionarTipoPersonaje(int n) {
 
-        switch (i) {
+        switch (n) {
         case 1:
 
             System.out.println("Indica el número de tu Wizard: ");
@@ -105,15 +97,15 @@ public class JuegoHarryPotter {
             }
             break;
 
-        case 3:
-
-            System.out.println("indica el número de tu Elfo: ");
-            List<Elfo> listaElfos = buscarElfo();
-            for (Elfo e : listaElfos) {
-                System.out.println(e.numeroPersonajeSeleccionado + " " + e.nombre);
-
-            }
-            break;
+        /*
+         * case 3:
+         * 
+         * System.out.println("indica el número de tu Elfo: "); List<Elfo> listaElfos =
+         * buscarElfo(); for (Elfo e : listaElfos) {
+         * System.out.println(e.numeroPersonajeSeleccionado + " " + e.nombre);
+         * 
+         * } break;
+         */
 
         case 4:
             System.out.println("Indica el número de tu Muggle: ");
@@ -129,20 +121,13 @@ public class JuegoHarryPotter {
 
     }
 
-/*public List<Ataque> buscarHechizoAtaque(){
-    List<Ataque> listaAtaque = new ArrayList<>();
-    for (Hechizo h : hechizos) {
-        if (h instanceof Ataque){
-            listaAtaque.add(h);
-        }
-        
-    }
-}*/
-
-
-
-
-
+    /*
+     * public List<Ataque> buscarHechizoAtaque(){ List<Ataque> listaAtaque = new
+     * ArrayList<>(); for (Hechizo h : hechizos) { if (h instanceof Ataque){
+     * listaAtaque.add(h); }
+     * 
+     * } }
+     */
 
     public List<Wizard> buscarWizard() {
         List<Wizard> listaWizards = new ArrayList<>();
@@ -168,17 +153,12 @@ public class JuegoHarryPotter {
         return listaCriaturas;
     }
 
-    public List<Elfo> buscarElfo() {
-        List<Elfo> listaElfos = new ArrayList<>();
-
-        for (Personaje p : personajes) {
-            if (p instanceof Elfo) {
-                listaElfos.add((Elfo) p);
-            }
-        }
-        return listaElfos;
-    }
-
+    /*
+     * public List<Elfo> buscarElfo() { List<Elfo> listaElfos = new ArrayList<>();
+     * 
+     * for (Personaje p : personajes) { if (p instanceof Elfo) {
+     * listaElfos.add((Elfo) p); } } return listaElfos; }
+     */
     public List<Muggle> buscarMuggle() {
         List<Muggle> listaMuggles = new ArrayList<>();
 
@@ -190,6 +170,14 @@ public class JuegoHarryPotter {
         return listaMuggles;
     }
 
-	
+
+    public Personaje crearPersonaje(int n) {
+        for (Personaje v : personajes) {
+            if(n == v.numeroPersonajeSeleccionado){
+                return v;
+            }            
+        }return null;
+
+    }
 
 }

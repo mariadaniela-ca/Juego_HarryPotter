@@ -1,11 +1,10 @@
 package app.personajes;
 
-import app.interfaces.IEsMagico;
 
 /**
  * Criatura
  */
-public class Criatura extends Personaje implements IEsMagico {
+public class Criatura extends Personaje{
 
     public int nivelDeDaño;
 
@@ -14,8 +13,5 @@ public class Criatura extends Personaje implements IEsMagico {
 
     }
 
-	public boolean esMagico() {
-        return true;
-    }
 
 }

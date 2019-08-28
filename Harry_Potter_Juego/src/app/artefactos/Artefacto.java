@@ -76,7 +76,6 @@ public class Artefacto implements IEsMagico {
         
         }
         
-    }
 
     public boolean esInvisibleAMuggles() {
         return false;
