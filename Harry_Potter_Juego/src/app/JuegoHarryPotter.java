@@ -2,11 +2,8 @@ package app;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-import app.interfaces.IHacerMagia;
 import app.personajes.Criatura;
-
 import app.personajes.Muggle;
 import app.personajes.Personaje;
 import app.personajes.Wizard;
@@ -17,7 +14,7 @@ import app.personajes.Wizard;
 
 public class JuegoHarryPotter {
 
-    public Scanner Teclado = new Scanner(System.in);
+    
     public List<Personaje> personajes = new ArrayList<Personaje>();
 
     public void cargarPersonaje() {
