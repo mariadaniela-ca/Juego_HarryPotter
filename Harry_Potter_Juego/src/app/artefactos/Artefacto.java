@@ -2,7 +2,6 @@ package app.artefactos;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import app.interfaces.IEsMagico;
 import app.interfaces.IReliquiaMuerte;
@@ -12,7 +11,7 @@ import app.interfaces.IReliquiaMuerte;
  */
 public class Artefacto implements IEsMagico {
 
-    public Scanner Teclado = new Scanner(System.in);
+   
     public String nombre;
 
     public Artefacto(String n) {
@@ -63,10 +62,10 @@ public class Artefacto implements IEsMagico {
 
     }
 
-    public void escogerTipoArtefacto() {
+    public void escogerTipoArtefacto(int n) {
 
 
-        if (numero == 1) {
+        if (n == 1) {
             System.out.println("Indica el número de tu Reliquia de la Muerte:");
             List<Artefacto> listaReliquias = buscarReliquia();
             for (Artefacto r : listaReliquias) {
