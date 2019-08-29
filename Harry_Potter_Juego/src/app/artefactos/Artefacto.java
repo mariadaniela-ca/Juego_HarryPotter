@@ -63,16 +63,8 @@ public class Artefacto implements IEsMagico {
 
     }
 
-    public void mostrarArtefactos() {
-        System.out
-                .println("Tenemos 2 tipos de artefactos: \n 1 Reliquias de la Muerte \n 2 Artefactos mágicos comunes");
-    }
-
     public void escogerTipoArtefacto() {
 
-        System.out.println("Escoge un tipo de artefacto:");
-        int numero;
-        numero = Teclado.nextInt();
 
         if (numero == 1) {
             System.out.println("Indica el número de tu Reliquia de la Muerte:");
