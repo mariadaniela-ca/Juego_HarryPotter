@@ -10,13 +10,15 @@ public class App {
     public static Scanner Teclado = new Scanner(System.in);
 
     public static void main(String[] args) {
-
+        System.out.println(Math.round(Math.random() * (1 - 10) + 10));
+        System.out.println(Math.round(Math.random() * (1 - 4) + 4));
         /*
          * int numeroJugador; int oponente; int numeroArtefacto;
          */ int tipoPersonaje;
         int numeroPersonaje;
         int tipoOponente;
         int oponente;
+        int hechizo;
 
         JuegoHarryPotter juegoNuevo = new JuegoHarryPotter();
 
@@ -57,26 +59,53 @@ public class App {
             hechizos.cargarHechizos();
 
             System.out.println("    Tenemos 4 tipos de hechizos: 1 de Ataque 2 de Curación 3 de Defensa 4 de Ocio");
+            hechizos.mostrarHechizo();
 
-            for (int i = 0; i < 3; i++) {
-                Hechizo hh = new Hechizo();
-                System.out.println(" Escoge que tipo de hechizos quieres: ");
+            System.out.println("Elige el tipo de hechizo: ");
+            hechizo = Teclado.nextInt();
+            hechizos.elegirTipoHechizo(hechizo);
 
+            System.out.println("Escoge el hechizo: ");
+            hechizo = Teclado.nextInt();
+            Hechizo hechizoAprender = hechizos.getHechizoEscogido(hechizo);
+            nuevoSerMagico.aprender(hechizoAprender);
+
+            if (oponenteP instanceof IHacerMagia) {
+                int numeroRandom = (int) (Math.round(Math.random() * (1 - 4) + 4));
+
+                IHacerMagia otroSerMagico = ((IHacerMagia) oponenteP);
+                Hechizo hechizoRandom = hechizos.getHechizoEscogido(numeroRandom);
+                otroSerMagico.aprender(hechizoRandom);
+
+                for (int i = nuevoP.salud; i >= 0; i--) {
+                    if (nuevoP.salud != 0) {
+
+                        System.out.println(nuevoP.nombre + " ataca a " + oponenteP.nombre + " con el hechizo "
+                                + hechizoAprender.nombre);
+                        
+                        nuevoSerMagico.atacar(oponenteP, hechizoAprender);
+                    }
                 
-                int tipoHechizo1;
-                tipoHechizo1 = Teclado.nextInt();
-                hh.elegirTipoHechizo(tipoHechizo1);
+                    System.out.println(oponenteP.nombre + " tiene: " + oponenteP.salud + " de vida");
+                    if (oponenteP.salud != 0) {
+                        System.out.println(oponenteP.nombre + " ataca a " + nuevoP.nombre + " con el hechizo: "
+                                + hechizoRandom.nombre);
 
-                System.out.println("Escoge el hechizo: ");
-                int hechizoElegido1;
-                hechizoElegido1 = Teclado.nextInt();
-                hh.elegirHechizo(hechizoElegido1);
+                        otroSerMagico.atacar(nuevoP, hechizoRandom);
+                        System.out.println(nuevoP.nombre + " tiene: " + nuevoP.salud + " de vida");
+                      
+                    }
+            
+                }
 
-                System.out.println(hh.nombre);
-
-                
-                
             }
+
+            /*
+             * for (int i = 0; i < 3; i++) { Hechizo hh = new Hechizo();
+             * hh.mostrarHechizo();
+             * 
+             * }
+             */
 
             /*
              * System.out.println(" Escoge que tipo de hechizos quieres (solo puedes 3)");

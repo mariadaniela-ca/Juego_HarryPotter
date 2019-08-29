@@ -1,6 +1,5 @@
 package app.poderes;
 
-
 /**
  * Poder
  */

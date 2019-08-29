@@ -5,19 +5,18 @@ import java.util.List;
 
 import app.artefactos.Artefacto;
 import app.interfaces.IHacerMagia;
-import app.poderes.Poder;
 import app.poderes.hechizos.Hechizo;
 
 /**
  * Wizard
  */
-public class Wizard extends Persona implements IHacerMagia{
+public class Wizard extends Persona implements IHacerMagia {
 
     public String escoba; // llamar a la lista escoba
 
     public List<Artefacto> artefactos = new ArrayList<Artefacto>();
 
-    public List<Hechizo> hechizos = new ArrayList<Hechizo>();
+    public List<Hechizo> hechizosAprendidos = new ArrayList<Hechizo>();
 
     public boolean esMagoOscuro = false;
 
@@ -26,33 +25,28 @@ public class Wizard extends Persona implements IHacerMagia{
 
     }
 
-    
     public void getPoderInicial() {
 
     }
 
-    
-    public void setPoderinicial(Poder p) {
-
-    }
-
-   
     public void aprender(Hechizo h) {
-
+       
+            hechizosAprendidos.add(h);
+               
     }
 
-    
     public void getArtefactos() {
 
     }
 
-   
     public void atacar(Personaje p, Hechizo h) {
+        p.salud = p.salud - h.nivelDeDaño;
 
     }
 
-    
     public void atacar(Personaje p, String nombreDeHechizo) {
 
-	}
+    }
+
+
 }
