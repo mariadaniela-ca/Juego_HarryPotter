@@ -165,7 +165,7 @@ public class Hechizo extends Poder {
 
     public void elegirTipoHechizo(int numero) {
 
-        for (int i = tipoHechizo1; i <= tipoHechizo3; i++) {
+       /* for (int i = tipoHechizo1; i <= tipoHechizo3; i++) {*/
 
             switch (numero) {
             case 1:
@@ -207,7 +207,7 @@ public class Hechizo extends Poder {
                 break;
             }
         }
-    }
+    //}
 
     public List<Hechizo> buscarDeAtaque() {
         List<Hechizo> deAtaque = new ArrayList<>();

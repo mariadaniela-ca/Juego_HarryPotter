@@ -57,43 +57,57 @@ public class App {
             hechizos.cargarHechizos();
 
             System.out.println("    Tenemos 4 tipos de hechizos: 1 de Ataque 2 de Curación 3 de Defensa 4 de Ocio");
-            System.out.println(" Escoge que tipo de hechizos quieres (solo puedes 3)");
 
-            int tipoHechizo1;
-            tipoHechizo1 = Teclado.nextInt();
-            hechizos.elegirTipoHechizo(tipoHechizo1);
-            int hechizoElegido1;
-            hechizoElegido1 = Teclado.nextInt();
-            hechizos.elegirHechizo(hechizoElegido1);
+            for (int i = 0; i < 3; i++) {
+                Hechizo hh = new Hechizo();
+                System.out.println(" Escoge que tipo de hechizos quieres: ");
 
-            System.out.println("Escoge tu segundo tipo de hechizo: ");
+                
+                int tipoHechizo1;
+                tipoHechizo1 = Teclado.nextInt();
+                hh.elegirTipoHechizo(tipoHechizo1);
 
-            int tipoHechizo2;
-            tipoHechizo2 = Teclado.nextInt();
-            hechizos.elegirTipoHechizo(tipoHechizo2);
-            int hechizoElegido2;
-            hechizoElegido2 = Teclado.nextInt();
-            hechizos.elegirHechizo(hechizoElegido2);
+                System.out.println("Escoge el hechizo: ");
+                int hechizoElegido1;
+                hechizoElegido1 = Teclado.nextInt();
+                hh.elegirHechizo(hechizoElegido1);
 
-            System.out.println("Solo un tipo más!");
+                System.out.println(hh.nombre);
 
-            int tipoHechizo3;
-            tipoHechizo3 = Teclado.nextInt();
-            hechizos.elegirTipoHechizo(tipoHechizo3);
-            int hechizoElegido3;
-            hechizoElegido3 = Teclado.nextInt();
-            hechizos.elegirHechizo(hechizoElegido3);
+                
+                
+            }
 
-            System.out.println("Tu personaje es " + nuevoP.nombre + " y sus hechizos serán " + hechizoElegido1 + ", "
-                    + hechizoElegido2 + ", " + hechizoElegido3);
-
-            // hechizos.buscarDeAtaque();
-
-            IHacerMagia nuevoSerMagico = ((IHacerMagia)nuevoP);
-            System.out.println("Es hora de aprender hechizos!");
-            nuevoSerMagico.aprender(h);
-                   
-            
+            /*
+             * System.out.println(" Escoge que tipo de hechizos quieres (solo puedes 3)");
+             * 
+             * int tipoHechizo1; tipoHechizo1 = Teclado.nextInt();
+             * hechizos.elegirTipoHechizo(tipoHechizo1); int hechizoElegido1;
+             * hechizoElegido1 = Teclado.nextInt(); hechizos.elegirHechizo(hechizoElegido1);
+             * 
+             * System.out.println("Escoge tu segundo tipo de hechizo: ");
+             * 
+             * int tipoHechizo2; tipoHechizo2 = Teclado.nextInt();
+             * hechizos.elegirTipoHechizo(tipoHechizo2); int hechizoElegido2;
+             * hechizoElegido2 = Teclado.nextInt(); hechizos.elegirHechizo(hechizoElegido2);
+             * 
+             * System.out.println("Solo un tipo más!");
+             * 
+             * int tipoHechizo3; tipoHechizo3 = Teclado.nextInt();
+             * hechizos.elegirTipoHechizo(tipoHechizo3); int hechizoElegido3;
+             * hechizoElegido3 = Teclado.nextInt(); hechizos.elegirHechizo(hechizoElegido3);
+             * 
+             * System.out.println("Tu personaje es " + nuevoP.nombre +
+             * " y sus hechizos serán " + hechizoElegido1 + ", " + hechizoElegido2 + ", " +
+             * hechizoElegido3);
+             * 
+             * // hechizos.buscarDeAtaque();
+             * 
+             * IHacerMagia nuevoSerMagico = ((IHacerMagia)nuevoP);
+             * System.out.println("Es hora de aprender hechizos!");
+             * nuevoSerMagico.aprender(h);
+             * 
+             */
             // for (int i = nuevoP.salud; i >= 0; i--) {}
 
         } else {
