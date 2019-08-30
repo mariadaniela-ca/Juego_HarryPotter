@@ -7,9 +7,6 @@ import app.interfaces.IHacerMagia;
 import app.personajes.Personaje;
 import app.personajes.Wizard;
 import app.poderes.hechizos.Hechizo;
-import app.poderes.hechizos.hechizosataque.HechizoAtaque;
-import app.poderes.hechizos.hechizoscuracion.HechizoCuracion;
-import app.poderes.hechizos.hechizosdefensa.HechizoDefensa;
 
 public class App {
     public static Scanner Teclado = new Scanner(System.in);
@@ -104,45 +101,54 @@ public class App {
             if (oponenteP instanceof IHacerMagia) {
 
                 boolean atacaPrimeroElUno = true;
+
                 while (nuevoP.salud > 0 && oponenteP.salud > 0) {
-                    System.out.println("Elige el tipo de hechizo que quieres usar: ");
-                    tipoHechizo1 = Teclado.nextInt();
-                    hechizo.elegirTipoHechizo(tipoHechizo1);
-
-                    System.out.println("Escoge el hechizo: ");
-                    hechizoElegido1 = Teclado.nextInt();
-
-                    Hechizo hechizoAprender = Hechizo.GetHechizoEscogido(hechizoElegido1);
-                    nuevoSerMagico.aprender(hechizoAprender);
 
                     int numeroRandom1 = (int) (Math.round(Math.random() * (1 - 12) + 12));
                     IHacerMagia otroSerMagico;// = ((IHacerMagia) oponenteP);
-                    Hechizo hechizoAtacante = null; //
+                    Hechizo hechizoAtacante = null;//
 
                     IHacerMagia atacante = null;
                     Personaje enemigo;
-                    hechizoAtacante = Hechizo.GetHechizoEscogido(numeroRandom1);
+
                     if (atacaPrimeroElUno) {
 
                         if (nuevoP instanceof IHacerMagia) {
-                            atacante = ((IHacerMagia) nuevoP);
-                        }
+                            System.out.println("Elige el tipo de hechizo que quieres usar: ");
 
+                            tipoHechizo1 = Teclado.nextInt();
+
+                            hechizo.elegirTipoHechizo(tipoHechizo1);
+
+                            System.out.println("Escoge el hechizo: ");
+
+                            hechizoElegido1 = Teclado.nextInt();
+
+                            hechizoAtacante = Hechizo.GetHechizoEscogido(hechizoElegido1);
+
+                            atacante = ((IHacerMagia) nuevoP);
+                            atacante.aprender(hechizoAtacante);
+
+                        }
+                        
                         enemigo = oponenteP;
+                        System.out.println("Está atacando el usuario");
 
                     } else {
                         if (oponenteP instanceof IHacerMagia) {
                             atacante = ((IHacerMagia) oponenteP);
+                            // hechizoAtacante = (Hechizo) ((IHacerMagia))
                         }
-
+                        hechizoAtacante = Hechizo.GetHechizoEscogido(numeroRandom1);
                         enemigo = nuevoP;
+                        System.out.println("Esta atacando la computadora");
 
                     }
-
-                    atacante.atacar(enemigo, hechizoAprender);
-                    ;
-
-                    otroSerMagico.aprender(hechizoRandom1);
+                   
+                    atacante.atacar(enemigo, hechizoAtacante);
+                    System.out.println("La salud del enemigo es: "+enemigo.salud);
+                    atacaPrimeroElUno = !atacaPrimeroElUno;
+                    // otroSerMagico.aprender(hechizoRandom1);
 
                     /*
                      * int numeroRandom2 = (int) (Math.round(Math.random() * (1 - 12) + 12));
@@ -150,19 +156,22 @@ public class App {
                      * otroSerMagico.aprender(hechizoRandom2);
                      */
 
-                    if (hechizoAprender instanceof HechizoAtaque) {
-                        nuevoSerMagico.atacar(oponenteP, hechizoAprender);
+                    /*
+                     * if (hechizoAprender instanceof HechizoAtaque) {
+                     * nuevoSerMagico.atacar(oponenteP, hechizoAprender);
+                     * 
+                     * System.out.println(nuevoP.nombre + " atacó a " + oponenteP.nombre +
+                     * " con el hechizo " + hechizoAprender.nombre);
+                     * 
+                     * System.out.println(oponenteP.nombre + " tiene: " + oponenteP.salud +
+                     * " de vida"); } else if (hechizoAprender instanceof HechizoCuracion) {
+                     * 
+                     * nuevoP.salud = nuevoP.salud + hechizo.nivelDeCuracion;
+                     * System.out.println(nuevoP.nombre + " se curó con: " + nuevoP.salud);
+                     * 
+                     * }
+                     */
 
-                        System.out.println(nuevoP.nombre + " atacó a " + oponenteP.nombre + " con el hechizo "
-                                + hechizoAprender.nombre);
-
-                        System.out.println(oponenteP.nombre + " tiene: " + oponenteP.salud + " de vida");
-                    } else if (hechizoAprender instanceof HechizoCuracion) {
-
-                        nuevoP.salud = nuevoP.salud + hechizo.nivelDeCuracion;
-                        System.out.println(nuevoP.nombre + " se curó con: " + nuevoP.salud);
-
-                    }
                     /*
                      * if (oponenteP.salud > 0) {
                      * 
