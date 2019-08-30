@@ -8,6 +8,7 @@ import app.personajes.Muggle;
 import app.personajes.Personaje;
 import app.personajes.Wizard;
 
+
 /**
  * JuegoHarryPotter
  */
@@ -22,6 +23,7 @@ public class JuegoHarryPotter {
         Wizard personaje = new Wizard("Harry Potter");
         personaje.edad = 17;
         personaje.numeroPersonajeSeleccionado = 1;
+        
         personajes.add(personaje);
 
         personaje = new Wizard("Hermione Granger");

@@ -34,7 +34,7 @@ public class Hechizo extends Poder {
     public int identificador;
     public int nivelDeEnergia;
 
-    public static List<Hechizo> hechizos = new ArrayList<Hechizo>();
+    public static List<Hechizo> Hechizos = new ArrayList<Hechizo>();
 
     public Hechizo(String nombre) {
         this.nombre = nombre;
@@ -52,7 +52,8 @@ public class Hechizo extends Poder {
         c.nivelDeCuracion = 0;
         c.nivelDeDaño = 50;
         c.nivelDeProteccion = 0;
-        hechizos.add(c);
+        
+        Hechizos.add(c);
 
         PetrificusTotalus p = new PetrificusTotalus("Petrificus Totalus");
         p.identificador = 2;
@@ -60,7 +61,8 @@ public class Hechizo extends Poder {
         p.nivelDeCuracion = 0;
         p.nivelDeDaño = 20;
         p.nivelDeProteccion = 0;
-        hechizos.add(p);
+       
+        Hechizos.add(p);
 
         Sectumsempra s = new Sectumsempra("Sectumsempra");
         s.identificador = 3;
@@ -68,7 +70,8 @@ public class Hechizo extends Poder {
         s.nivelDeCuracion = 0;
         s.nivelDeDaño = 10;
         s.nivelDeProteccion = 0;
-        hechizos.add(s);
+        
+        Hechizos.add(s);
 
         BrackiumEmendo b = new BrackiumEmendo("Brackium Emendo");
         b.identificador = 4;
@@ -76,7 +79,7 @@ public class Hechizo extends Poder {
         b.nivelDeCuracion = 20;
         b.nivelDeDaño = 0;
         b.nivelDeProteccion = 0;
-        hechizos.add(b);
+        Hechizos.add(b);
 
         Reparifors r = new Reparifors("Reparifors");
         r.identificador = 5;
@@ -84,7 +87,7 @@ public class Hechizo extends Poder {
         r.nivelDeCuracion = 25;
         r.nivelDeDaño = 0;
         r.nivelDeProteccion = 0;
-        hechizos.add(r);
+        Hechizos.add(r);
 
         VulneraSanentur v = new VulneraSanentur("Vulnera Sanentur");
         v.identificador = 6;
@@ -92,7 +95,7 @@ public class Hechizo extends Poder {
         v.nivelDeCuracion = 20;
         v.nivelDeDaño = 0;
         v.nivelDeProteccion = 0;
-        hechizos.add(v);
+        Hechizos.add(v);
 
         CaveInimicum ci = new CaveInimicum("Cave Inimicum");
         ci.identificador = 7;
@@ -100,7 +103,7 @@ public class Hechizo extends Poder {
         ci.nivelDeCuracion = 0;
         ci.nivelDeDaño = 0;
         ci.nivelDeProteccion = 5;
-        hechizos.add(ci);
+        Hechizos.add(ci);
 
         ExpectoPatronum e = new ExpectoPatronum("Expecto Patronum");
         e.identificador = 8;
@@ -108,7 +111,7 @@ public class Hechizo extends Poder {
         e.nivelDeCuracion = 0;
         e.nivelDeDaño = 0;
         e.nivelDeProteccion = 10;
-        hechizos.add(e);
+        Hechizos.add(e);
 
         Protego pr = new Protego("Protego");
         pr.identificador = 9;
@@ -116,7 +119,7 @@ public class Hechizo extends Poder {
         pr.nivelDeCuracion = 0;
         pr.nivelDeDaño = 0;
         pr.nivelDeProteccion = 15;
-        hechizos.add(pr);
+        Hechizos.add(pr);
 
         Accio acc = new Accio("Accio");
         acc.identificador = 10;
@@ -124,7 +127,7 @@ public class Hechizo extends Poder {
         acc.nivelDeCuracion = 0;
         acc.nivelDeDaño = 0;
         acc.nivelDeProteccion = 0;
-        hechizos.add(acc);
+        Hechizos.add(acc);
 
         Bauleo bau = new Bauleo("Bauleo");
         bau.identificador = 11;
@@ -132,7 +135,7 @@ public class Hechizo extends Poder {
         bau.nivelDeCuracion = 0;
         bau.nivelDeDaño = 0;
         bau.nivelDeProteccion = 0;
-        hechizos.add(bau);
+        Hechizos.add(bau);
 
         WingardiumLeviosa win = new WingardiumLeviosa("Wingardium Leviosa");
         win.identificador = 12;
@@ -140,7 +143,7 @@ public class Hechizo extends Poder {
         win.nivelDeCuracion = 0;
         win.nivelDeDaño = 0;
         win.nivelDeProteccion = 0;
-        hechizos.add(win);
+        Hechizos.add(win);
 
     }
 
@@ -211,8 +214,8 @@ public class Hechizo extends Poder {
 
     
 
-    public Hechizo getHechizoEscogido(int numero) {
-        for (Hechizo h : hechizos) {
+    public static Hechizo GetHechizoEscogido(int numero) {
+        for (Hechizo h : Hechizos) {
             if (numero == h.identificador) {
                 return h;
             }
@@ -224,7 +227,7 @@ public class Hechizo extends Poder {
     public List<Hechizo> buscarDeAtaque() {
         List<Hechizo> deAtaque = new ArrayList<>();
 
-        for (Hechizo a : hechizos) {
+        for (Hechizo a : Hechizos) {
             if (a instanceof HechizoAtaque) {
                 deAtaque.add(a);
             }
@@ -236,7 +239,7 @@ public class Hechizo extends Poder {
     public List<Hechizo> buscarDeCuracion() {
         List<Hechizo> deCuracion = new ArrayList<>();
 
-        for (Hechizo a : hechizos) {
+        for (Hechizo a : Hechizos) {
             if (a instanceof HechizoCuracion) {
                 deCuracion.add(a);
             }
@@ -248,7 +251,7 @@ public class Hechizo extends Poder {
     public List<Hechizo> buscarDeDefensa() {
         List<Hechizo> deDefensa = new ArrayList<>();
 
-        for (Hechizo a : hechizos) {
+        for (Hechizo a : Hechizos) {
             if (a instanceof HechizoDefensa) {
                 deDefensa.add(a);
             }
@@ -260,7 +263,7 @@ public class Hechizo extends Poder {
     public List<Hechizo> buscarDeOcio() {
         List<Hechizo> deOcio = new ArrayList<>();
 
-        for (Hechizo a : hechizos) {
+        for (Hechizo a : Hechizos) {
             if (a instanceof HechizoOcio) {
                 deOcio.add(a);
             }

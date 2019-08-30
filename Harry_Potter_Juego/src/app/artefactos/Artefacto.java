@@ -11,7 +11,6 @@ import app.interfaces.IReliquiaMuerte;
  */
 public class Artefacto implements IEsMagico {
 
-   
     public String nombre;
 
     public Artefacto(String n) {
@@ -64,7 +63,6 @@ public class Artefacto implements IEsMagico {
 
     public void escogerTipoArtefacto(int n) {
 
-
         if (n == 1) {
             System.out.println("Indica el número de tu Reliquia de la Muerte:");
             List<Artefacto> listaReliquias = buscarReliquia();
@@ -82,6 +80,15 @@ public class Artefacto implements IEsMagico {
             }
         }
 
+    }
+
+    public Artefacto escogerArtefacto(int n){
+        for (Artefacto ar : artefactos) {
+            if(n == ar.numeroDeArtefacto){
+                return ar;
+            }
+            
+        }return null;
     }
 
     public List<Artefacto> buscarReliquia() {

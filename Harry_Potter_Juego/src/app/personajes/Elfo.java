@@ -46,7 +46,7 @@ public class Elfo extends Criatura implements IHacerMagia{
 		
 	}
 
-    public void setPoderInicial() {
+    public void setPoderInicial(Poder p) {
 
     }
 

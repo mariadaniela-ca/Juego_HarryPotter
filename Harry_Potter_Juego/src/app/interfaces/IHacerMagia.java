@@ -1,6 +1,7 @@
 package app.interfaces;
 
 import app.personajes.Personaje;
+import app.poderes.Poder;
 import app.poderes.hechizos.Hechizo;
 
 /**
@@ -10,7 +11,7 @@ public interface IHacerMagia {
 
     public void getPoderInicial();
 
-    public void setPoderInicial();
+    public void setPoderInicial(Poder p);
 
     public void aprender(Hechizo h);
 
