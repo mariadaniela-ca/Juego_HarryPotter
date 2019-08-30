@@ -78,16 +78,17 @@ public class JuegoHarryPotter {
         switch (n) {
         case 1:
 
-            System.out.println("Indica el número de tu Wizard: ");
+            System.out.println("Escogiste un Wizard! ");
             List<Wizard> listaWizards = buscarWizard();
             for (Wizard w : listaWizards) {
                 System.out.println(w.numeroPersonajeSeleccionado + " " + w.nombre);
             }
+            
             break;
 
         case 2:
 
-            System.out.println("Indica el número de tu Criatura: ");
+            System.out.println("Escogiste una Criatura! ");
             List<Criatura> listaCriaturas = buscarCriatura();
             for (Criatura c : listaCriaturas) {
                 System.out.println(c.numeroPersonajeSeleccionado + " " + c.nombre);
@@ -105,7 +106,7 @@ public class JuegoHarryPotter {
          */
 
         case 4:
-            System.out.println("Indica el número de tu Muggle: ");
+            System.out.println("Escogiste un Muggle! ");
             List<Muggle> listaMuggles = buscarMuggle();
             for (Muggle m : listaMuggles) {
                 System.out.println(m.numeroPersonajeSeleccionado + " " + m.nombre);

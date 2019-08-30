@@ -161,91 +161,63 @@ public class Hechizo extends Poder {
     int hechizoElegido3;
 
     public void elegirHechizo(int numero) {
+        for (int i = tipoHechizo1; i <= tipoHechizo3; i++);
     }
-
-    public void mostrarHechizo() {
-
-        /* for (int i = tipoHechizo1; i <= tipoHechizo3; i++) { */
-
-        System.out.println("    1 -Hechizos de Ataque: ");
-        List<Hechizo> deAtaque = buscarDeAtaque();
-
-        for (Hechizo a : deAtaque) {
-            System.out.println(a.identificador + " " + a.nombre);
-        }
-
-        System.out.println("    2- Hechizos de curacion: ");
-        List<Hechizo> deCuracion = buscarDeCuracion();
-        for (Hechizo a : deCuracion) {
-            System.out.println(a.identificador + " " + a.nombre);
-        }
-
-        System.out.println("    3- Hechizos de defensa: ");
-        List<Hechizo> deDefensa = buscarDeDefensa();
-        for (Hechizo a : deDefensa) {
-            System.out.println(a.identificador + " " + a.nombre);
-        }
-
-        System.out.println("    4- Hechizos de Ocio: ");
-        List<Hechizo> deOcio = buscarDeOcio();
-        for (Hechizo a : deOcio) {
-            System.out.println(a.identificador + " " + a.nombre);
-        }
-    }
+    
 
     public void elegirTipoHechizo(int numero) {
+        
 
-        /* for (int i = tipoHechizo1; i <= tipoHechizo3; i++) { */
+            switch (numero) {
+            case 1:
+                System.out.println("Los Hechizos de Ataque son:");
+                List<Hechizo> deAtaque = buscarDeAtaque();
+                for (Hechizo a : deAtaque) {
+                    System.out.println(a.identificador + " " + a.nombre);
+                }
 
-        switch (numero) {
-        case 1:
-            System.out.println("Indica el número de tu Hechizo de Ataque");
-            List<Hechizo> deAtaque = buscarDeAtaque();
+                break;
 
-            for (Hechizo a : deAtaque) {
-                System.out.println(a.identificador + " " + a.nombre);
+            case 2:
+                System.out.println("Los Hechizos de Curación son:");
+                List<Hechizo> deCuracion = buscarDeCuracion();
+                for (Hechizo a : deCuracion) {
+                    System.out.println(a.identificador + " " + a.nombre);
+                }
+                break;
+
+            case 3:
+                System.out.println("Los Hechizos de Defensa son:");
+                List<Hechizo> deDefensa = buscarDeDefensa();
+                for (Hechizo a : deDefensa) {
+                    System.out.println(a.identificador + " " + a.nombre);
+                }
+
+                break;
+
+            case 4:
+                System.out.println("Los Hechizos de Ocio son:");
+                List<Hechizo> deOcio = buscarDeOcio();
+                for (Hechizo a : deOcio) {
+                    System.out.println(a.identificador + " " + a.nombre);
+                }
+                break;
+
+            default:
+                break;
             }
-
-            break;
-
-        case 2:
-            System.out.println("Indica el número de tu Hechizo de Curación");
-            List<Hechizo> deCuracion = buscarDeCuracion();
-            for (Hechizo a : deCuracion) {
-                System.out.println(a.identificador + " " + a.nombre);
-            }
-            break;
-
-        case 3:
-            System.out.println("Indica el número de tu Hechizo de Defensa");
-            List<Hechizo> deDefensa = buscarDeDefensa();
-            for (Hechizo a : deDefensa) {
-                System.out.println(a.identificador + " " + a.nombre);
-            }
-
-            break;
-
-        case 4:
-            System.out.println("Indica el número de tu Hechizo de Ocio");
-            List<Hechizo> deOcio = buscarDeOcio();
-            for (Hechizo a : deOcio) {
-                System.out.println(a.identificador + " " + a.nombre);
-            }
-            break;
-
-        default:
-            break;
         }
-    }
-    // }
+
+    
 
     public Hechizo getHechizoEscogido(int numero) {
         for (Hechizo h : hechizos) {
-            if(numero == h.identificador){
+            if (numero == h.identificador) {
                 return h;
             }
-            
-        }return null;
+
+        }
+        return null;
     }
 
     public List<Hechizo> buscarDeAtaque() {
