@@ -21,25 +21,21 @@ public class JuegoHarryPotter {
 
         Wizard personaje = new Wizard("Harry Potter");
         personaje.edad = 17;
-        personaje.esMagoOscuro = false;
         personaje.numeroPersonajeSeleccionado = 1;
         personajes.add(personaje);
 
         personaje = new Wizard("Hermione Granger");
         personaje.edad = 17;
-        personaje.esMagoOscuro = false;
         personaje.numeroPersonajeSeleccionado = 2;
         personajes.add(personaje);
 
         personaje = new Wizard("Ron Weasley");
         personaje.edad = 17;
-        personaje.esMagoOscuro = false;
         personaje.numeroPersonajeSeleccionado = 3;
         personajes.add(personaje);
 
         personaje = new Wizard("Bellatrix Lestrange");
         personaje.edad = 47;
-        personaje.esMagoOscuro = true;
         personaje.numeroPersonajeSeleccionado = 4;
         personajes.add(personaje);
 
@@ -177,6 +173,6 @@ public class JuegoHarryPotter {
         }return null;
 
     }
+}
     
    
-}

@@ -10,6 +10,8 @@ public interface IHacerMagia {
 
     public void getPoderInicial();
 
+    public void setPoderInicial();
+
     public void aprender(Hechizo h);
 
     public void getArtefactos();

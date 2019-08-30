@@ -16,9 +16,9 @@ public class Wizard extends Persona implements IHacerMagia {
 
     public List<Artefacto> artefactos = new ArrayList<Artefacto>();
 
-    public List<Hechizo> hechizosAprendidos = new ArrayList<Hechizo>();
+    public static List<Hechizo> hechizosAprendidos = new ArrayList<Hechizo>();
 
-    public boolean esMagoOscuro = false;
+    public static boolean esMagoOscuro = false;
 
     public Wizard(String nombre) {
         super(nombre);
@@ -30,9 +30,9 @@ public class Wizard extends Persona implements IHacerMagia {
     }
 
     public void aprender(Hechizo h) {
-       
-            hechizosAprendidos.add(h);
-               
+
+        hechizosAprendidos.add(h);
+
     }
 
     public void getArtefactos() {
@@ -48,5 +48,19 @@ public class Wizard extends Persona implements IHacerMagia {
 
     }
 
+    public void setPoderInicial() {
 
+    }
+
+    public static boolean comprobarSiEsMagoOscuro() {
+        for (Hechizo r : hechizosAprendidos) {
+            if (r.esOscuro) {
+                esMagoOscuro = true;
+                return esMagoOscuro;
+
+            }
+        }
+        return false;
+
+    }
 }

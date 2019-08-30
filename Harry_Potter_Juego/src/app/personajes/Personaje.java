@@ -9,6 +9,7 @@ public class Personaje {
     public int edad;
     public int salud = 100;
     public int numeroPersonajeSeleccionado;
+    public int energiaMagica;
 
     public Personaje(String nombre) {
         this.nombre = nombre;

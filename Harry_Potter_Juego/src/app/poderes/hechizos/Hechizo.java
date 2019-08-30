@@ -32,6 +32,7 @@ public class Hechizo extends Poder {
     public int nivelDeCuracion;
     public int nivelDeProteccion;
     public int identificador;
+    public int nivelDeEnergia;
 
     public static List<Hechizo> hechizos = new ArrayList<Hechizo>();
 
