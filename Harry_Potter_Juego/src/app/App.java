@@ -7,31 +7,27 @@ import app.interfaces.IHacerMagia;
 import app.personajes.Personaje;
 import app.personajes.Wizard;
 import app.poderes.hechizos.Hechizo;
+import app.poderes.hechizos.hechizoscuracion.HechizoCuracion;
 
 public class App {
     public static Scanner Teclado = new Scanner(System.in);
 
     public static void main(String[] args) {
 
-        System.out.println(Math.round(Math.random() * (1 - 10) + 10));
-        System.out.println(Math.round(Math.random() * (1 - 4) + 4));
-        /*
-         * int numeroJugador; int oponente; int numeroArtefacto;
-         */ int tipoPersonaje;
+        int tipoPersonaje;
+
         int numeroPersonaje;
+
         int tipoOponente;
+
         int oponente;
+
         int tipoHechizo1;
-        int tipoHechizo2;
-        int tipoHechizo3;
+        Personaje enemigo;
 
         int hechizoElegido1;
-        int hechizoElegido2;
-        int hechizoElegido3;
 
-        JuegoHarryPotter juegoNuevo = new JuegoHarryPotter();
-
-        juegoNuevo.cargarPersonaje();
+        JuegoHarryPotter.CargarPersonaje();
 
         System.out.println("    Tenemos 4 tipos de personajes: 1 wizards 2 Criaturas 3 Elfos 4 Muggles");
 
@@ -39,25 +35,25 @@ public class App {
 
         tipoPersonaje = Teclado.nextInt();
 
-        juegoNuevo.seleccionarTipoPersonaje(tipoPersonaje);
+        JuegoHarryPotter.SeleccionarTipoPersonaje(tipoPersonaje);
         System.out.println("Escoge el numero de tu personaje");
 
         numeroPersonaje = Teclado.nextInt();
 
-        Personaje nuevoP = juegoNuevo.crearPersonaje(numeroPersonaje);
+        Personaje nuevoP = JuegoHarryPotter.CrearPersonaje(numeroPersonaje);
 
         System.out.println("    Escoge el tipo de oponente: ");
         System.out.println(" 1 wizards 2 Criaturas 3 Elfos 4 Muggles");
 
         tipoOponente = Teclado.nextInt();
 
-        juegoNuevo.seleccionarTipoPersonaje(tipoOponente);
+        JuegoHarryPotter.SeleccionarTipoPersonaje(tipoOponente);
 
         System.out.println("    Escoge el numero de tu oponente");
 
         oponente = Teclado.nextInt();
 
-        Personaje oponenteP = juegoNuevo.crearPersonaje(oponente);
+        Personaje oponenteP = JuegoHarryPotter.CrearPersonaje(oponente);
 
         System.out.println("    Tu oponente es: " + oponenteP.nombre);
 
@@ -65,89 +61,110 @@ public class App {
 
             IHacerMagia nuevoSerMagico = ((IHacerMagia) nuevoP);
 
-            Artefacto artefactos = new Artefacto();
-            artefactos.agregarArtefacto();
+            JuegoHarryPotter.CargarArtefacto();
+            System.out.println("Ahora, vamos a escoger 1 artefacto mágico");
 
-            System.out.println("Ahora, vamos a escoger 3 artefactos");
+            System.out.println("Este artefacto te ayudará a protegerte o a atacar a tu enemigo con mas potencia");
 
-            System.out.println("Estos artefactos te ayudarán a protegerte o a atacar a tu enemigo con mas potencia");
+            JuegoHarryPotter.MostrarArtefactos();
 
-            System.out.println("Tenemos dos tipos de artefactos:");
-            System.out.println("1 - Reliquias de la muerte");
-            System.out.println("2- Artefactos magicos ");
-            System.out.println("Indica el numero del tipo de artefacto que quieres usar: ");
-            int tipoArtefacto = Teclado.nextInt();
-            artefactos.escogerTipoArtefacto(tipoArtefacto);
+            System.out.println("Elige el numero del artefacto que deseas");
+
             int numeroArtefacto = Teclado.nextInt();
 
-            Artefacto artefactoEscogido = artefactos.escogerArtefacto(numeroArtefacto);
+            Artefacto artefactoEscogido = JuegoHarryPotter.EscogerArtefacto(numeroArtefacto);
 
-            System.out.println("Es hora de aprender hechizos!");
+            System.out.println("El artefacto que escogiste fue: " + artefactoEscogido.nombre);
 
-            Hechizo hechizo = new Hechizo();
-            hechizo.cargarHechizos();
-
-            System.out.println("    Tenemos 4 tipos de hechizos: 1 de Ataque 2 de Curación 3 de Defensa 4 de Ocio");
-            // hechizos.mostrarHechizo();
-
-            if (nuevoSerMagico instanceof Wizard) {
-                if (Wizard.comprobarSiEsMagoOscuro()) {
-                    System.out.println("El mago es oscuro");
-
-                }
-
-            }
+            JuegoHarryPotter.CargarHechizos();
 
             if (oponenteP instanceof IHacerMagia) {
+                JuegoHarryPotter.ArtefactoAmplicadorDeSalud(artefactoEscogido, nuevoP);
+
+                System.out.println("¡ QUE EMPIECE LA BATALLA !");
 
                 boolean atacaPrimeroElUno = true;
 
                 while (nuevoP.salud > 0 && oponenteP.salud > 0) {
 
-                    int numeroRandom1 = (int) (Math.round(Math.random() * (1 - 12) + 12));
+                    int numeroRandom1 = (int) (Math.round(Math.random() * (1 - 3) + 3));
                     IHacerMagia otroSerMagico;// = ((IHacerMagia) oponenteP);
                     Hechizo hechizoAtacante = null;//
 
                     IHacerMagia atacante = null;
-                    Personaje enemigo;
 
                     if (atacaPrimeroElUno) {
 
                         if (nuevoP instanceof IHacerMagia) {
                             System.out.println("Elige el tipo de hechizo que quieres usar: ");
+                            System.out.println(
+                                    " 1 - Hechizo de Ataque\n 2 - Hechizo de Curacion \n 3 - Hechizo de Defensa \n 4 - Hechizo de Ocio ");
 
                             tipoHechizo1 = Teclado.nextInt();
 
-                            hechizo.elegirTipoHechizo(tipoHechizo1);
+                            JuegoHarryPotter.ElegirTipoHechizo(tipoHechizo1);
 
                             System.out.println("Escoge el hechizo: ");
 
                             hechizoElegido1 = Teclado.nextInt();
 
-                            hechizoAtacante = Hechizo.GetHechizoEscogido(hechizoElegido1);
+                            hechizoAtacante = JuegoHarryPotter.GetHechizoEscogido(hechizoElegido1);
 
-                            atacante = ((IHacerMagia) nuevoP);
+                            atacante = (IHacerMagia) nuevoP;
+
                             atacante.aprender(hechizoAtacante);
 
                         }
-                        
+
                         enemigo = oponenteP;
-                        System.out.println("Está atacando el usuario");
+
+                        if (hechizoAtacante instanceof HechizoCuracion) {
+
+                            JuegoHarryPotter.Curarme(nuevoP, hechizoAtacante);
+
+                            System.out.println(
+                                    nuevoP.nombre + " se está curando con el hechizo: " + hechizoAtacante.nombre);
+                        } else {
+                            System.out.println(nuevoP.nombre + " está atacando a " + oponenteP.nombre
+                                    + " con el hechizo: " + hechizoAtacante.nombre);
+                        }
+                        if (nuevoP instanceof Wizard) {
+                            if (Wizard.ComprobarSiEsMagoOscuro()) {
+                                hechizoAtacante.nivelDeDaño = (hechizoAtacante.nivelDeDaño * 2);
+                                hechizoAtacante.nivelDeCuracion = (hechizoAtacante.nivelDeCuracion * 2);
+                                System.out.println(nuevoP.nombre + " es un mago oscuro");
+                            }
+                        }
 
                     } else {
-                        if (oponenteP instanceof IHacerMagia) {
-                            atacante = ((IHacerMagia) oponenteP);
-                            // hechizoAtacante = (Hechizo) ((IHacerMagia))
-                        }
-                        hechizoAtacante = Hechizo.GetHechizoEscogido(numeroRandom1);
+
+                        atacante = (IHacerMagia) oponenteP;
+
+                        // hechizoAtacante = (Hechizo) ((IHacerMagia))
+
+                        hechizoAtacante = JuegoHarryPotter.GetHechizoEscogido(numeroRandom1);
+
                         enemigo = nuevoP;
-                        System.out.println("Esta atacando la computadora");
+
+                        System.out.println(oponenteP.nombre + " está atacando a  " + nuevoP.nombre + " con el hechizo: "
+                                + hechizoAtacante.nombre);
 
                     }
-                   
+
                     atacante.atacar(enemigo, hechizoAtacante);
-                    System.out.println("La salud del enemigo es: "+enemigo.salud);
+
+                    if (enemigo.salud < 0) {
+                        enemigo.salud = 0;
+                    }
+                    if (enemigo.nombre.equals(nuevoP.nombre)) {
+                        System.out.println("La salud de " + nuevoP.nombre + " es: " + nuevoP.salud);
+                    } else {
+                        System.out.println("La salud de " + oponenteP.nombre + " es: " + oponenteP.salud);
+
+                    }
+
                     atacaPrimeroElUno = !atacaPrimeroElUno;
+
                     // otroSerMagico.aprender(hechizoRandom1);
 
                     /*
@@ -197,6 +214,9 @@ public class App {
 
                 }
 
+            } else {
+                System.out
+                        .println(oponenteP.nombre + " no puede usar magia y esta siendo atacado por: " + nuevoP.nombre);
             }
         } else {
 
@@ -208,4 +228,5 @@ public class App {
 
         }
     }
+
 }

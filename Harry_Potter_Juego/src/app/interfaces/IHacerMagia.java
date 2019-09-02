@@ -9,7 +9,7 @@ import app.poderes.hechizos.Hechizo;
  */
 public interface IHacerMagia {
 
-    public void getPoderInicial();
+	public void getPoderInicial();
 
     public void setPoderInicial(Poder p);
 
