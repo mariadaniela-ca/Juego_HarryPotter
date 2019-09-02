@@ -7,7 +7,7 @@ public class Personaje {
 
     public String nombre;
     public int edad;
-    public int salud = 100;
+    public int salud;
     public int numeroPersonajeSeleccionado;
     public int energiaMagica;
 

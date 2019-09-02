@@ -5,7 +5,6 @@ import java.util.Scanner;
 import app.artefactos.Artefacto;
 import app.interfaces.IHacerMagia;
 import app.personajes.Personaje;
-import app.personajes.Wizard;
 import app.poderes.hechizos.Hechizo;
 import app.poderes.hechizos.hechizoscuracion.HechizoCuracion;
 
@@ -74,12 +73,12 @@ public class App {
 
             Artefacto artefactoEscogido = JuegoHarryPotter.EscogerArtefacto(numeroArtefacto);
 
+            nuevoSerMagico.getArtefactos().add(artefactoEscogido);
             System.out.println("El artefacto que escogiste fue: " + artefactoEscogido.nombre);
 
             JuegoHarryPotter.CargarHechizos();
 
             if (oponenteP instanceof IHacerMagia) {
-                JuegoHarryPotter.ArtefactoAmplicadorDeSalud(artefactoEscogido, nuevoP);
 
                 System.out.println("¡ QUE EMPIECE LA BATALLA !");
 
@@ -128,13 +127,6 @@ public class App {
                             System.out.println(nuevoP.nombre + " está atacando a " + oponenteP.nombre
                                     + " con el hechizo: " + hechizoAtacante.nombre);
                         }
-                        if (nuevoP instanceof Wizard) {
-                            if (Wizard.ComprobarSiEsMagoOscuro()) {
-                                hechizoAtacante.nivelDeDaño = (hechizoAtacante.nivelDeDaño * 2);
-                                hechizoAtacante.nivelDeCuracion = (hechizoAtacante.nivelDeCuracion * 2);
-                                System.out.println(nuevoP.nombre + " es un mago oscuro");
-                            }
-                        }
 
                     } else {
 
@@ -150,7 +142,7 @@ public class App {
                                 + hechizoAtacante.nombre);
 
                     }
-
+                    
                     atacante.atacar(enemigo, hechizoAtacante);
 
                     if (enemigo.salud < 0) {
@@ -164,54 +156,6 @@ public class App {
                     }
 
                     atacaPrimeroElUno = !atacaPrimeroElUno;
-
-                    // otroSerMagico.aprender(hechizoRandom1);
-
-                    /*
-                     * int numeroRandom2 = (int) (Math.round(Math.random() * (1 - 12) + 12));
-                     * Hechizo hechizoRandom2 = hechizo2.getHechizoEscogido(numeroRandom2);
-                     * otroSerMagico.aprender(hechizoRandom2);
-                     */
-
-                    /*
-                     * if (hechizoAprender instanceof HechizoAtaque) {
-                     * nuevoSerMagico.atacar(oponenteP, hechizoAprender);
-                     * 
-                     * System.out.println(nuevoP.nombre + " atacó a " + oponenteP.nombre +
-                     * " con el hechizo " + hechizoAprender.nombre);
-                     * 
-                     * System.out.println(oponenteP.nombre + " tiene: " + oponenteP.salud +
-                     * " de vida"); } else if (hechizoAprender instanceof HechizoCuracion) {
-                     * 
-                     * nuevoP.salud = nuevoP.salud + hechizo.nivelDeCuracion;
-                     * System.out.println(nuevoP.nombre + " se curó con: " + nuevoP.salud);
-                     * 
-                     * }
-                     */
-
-                    /*
-                     * if (oponenteP.salud > 0) {
-                     * 
-                     * if (hechizoRandom1 instanceof HechizoAtaque) { nuevoSerMagico.atacar(nuevoP,
-                     * hechizoRandom1); System.out.println(oponenteP.nombre + " atacó a " +
-                     * nuevoP.nombre + " con el hechizo " + hechizoRandom1.nombre);
-                     * 
-                     * } else if (hechizoRandom1 instanceof HechizoCuracion) { oponenteP.salud =
-                     * oponenteP.salud + hechizo.nivelDeCuracion;
-                     * System.out.println(oponenteP.nombre + " se curó con: " +
-                     * hechizoRandom1.nombre); System.out.println(oponenteP.nombre +
-                     * " ahora tiene: " + oponenteP.salud); }
-                     * 
-                     * if (nuevoP.salud <= 0) {
-                     * 
-                     * System.out.println(nuevoP.nombre + " tiene 0 de vida");
-                     * System.out.println(nuevoP.nombre + " murió"); } else {
-                     * System.out.println(nuevoP.nombre + " tiene: " + nuevoP.salud + " de vida"); }
-                     * } else {
-                     * 
-                     * System.out.println(oponenteP.nombre + " murió"); }
-                     */
-
                 }
 
             } else {

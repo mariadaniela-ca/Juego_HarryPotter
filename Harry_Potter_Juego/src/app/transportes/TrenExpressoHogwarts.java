@@ -8,9 +8,13 @@ import app.interfaces.IEsMagico;
 public class TrenExpressoHogwarts extends Transporte implements IEsMagico{
 
     
+    public TrenExpressoHogwarts(String nombre) {
+        super(nombre);
+        
+    }
+
     public boolean esMagico() {
         return true;
     }
-
-    
+   
 }

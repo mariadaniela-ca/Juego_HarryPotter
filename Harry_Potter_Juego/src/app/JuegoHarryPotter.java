@@ -46,55 +46,76 @@ public class JuegoHarryPotter {
 
     public static void CargarPersonaje() {
 
+        
+
         Wizard personaje = new Wizard("Harry Potter");
         personaje.edad = 17;
         personaje.numeroPersonajeSeleccionado = 1;
-
+        personaje.salud = 100;
+        personaje.energiaMagica = 100;
         Personajes.add(personaje);
 
         personaje = new Wizard("Hermione Granger");
         personaje.edad = 17;
+        personaje.salud = 100;
+        personaje.energiaMagica = 100;
         personaje.numeroPersonajeSeleccionado = 2;
 
         Personajes.add(personaje);
 
         personaje = new Wizard("Ron Weasley");
         personaje.edad = 17;
+        personaje.salud = 100;
+        personaje.energiaMagica = 100;
         personaje.numeroPersonajeSeleccionado = 3;
         Personajes.add(personaje);
 
         personaje = new Wizard("Bellatrix Lestrange");
         personaje.edad = 47;
+        personaje.salud = 100;
+        personaje.energiaMagica = 120;
         personaje.numeroPersonajeSeleccionado = 4;
         Personajes.add(personaje);
 
         Criatura criatura = new Criatura("Acromántula");
         criatura.nivelDeDaño = 80;
+        criatura.salud = 100;
+        criatura.energiaMagica = 0;
         criatura.numeroPersonajeSeleccionado = 5;
         Personajes.add(criatura);
 
         criatura = new Criatura("Basilisco");
         criatura.nivelDeDaño = 80;
+        criatura.salud = 100;
+        criatura.energiaMagica = 0;
         criatura.numeroPersonajeSeleccionado = 6;
         Personajes.add(criatura);
 
         Elfo elfo = new Elfo("Dobby");
         elfo.nivelDeDaño = 50;
+        elfo.salud = 100;
+        elfo.energiaMagica = 100;
         elfo.numeroPersonajeSeleccionado = 7;
         Personajes.add(elfo);
 
         elfo = new Elfo("Kreacher");
         elfo.nivelDeDaño = 40;
+        elfo.salud = 100;
+        elfo.energiaMagica = 100;
         elfo.numeroPersonajeSeleccionado = 8;
-        Personajes.add(criatura);
+        Personajes.add(elfo);
 
         Muggle muggle = new Muggle("Vernon Dursley");
         muggle.edad = 46;
+        muggle.salud = 100;
+        muggle.energiaMagica = 0;
         muggle.numeroPersonajeSeleccionado = 9;
         Personajes.add(muggle);
 
         muggle = new Muggle("Sra Granger");
         muggle.edad = 52;
+        muggle.salud = 100;
+        muggle.energiaMagica = 0;
         muggle.numeroPersonajeSeleccionado = 10;
         Personajes.add(muggle);
 
@@ -118,7 +139,7 @@ public class JuegoHarryPotter {
         p.nivelDeCuracion = 0;
         p.nivelDeDaño = 20;
         p.nivelDeProteccion = 0;
-        p.nivelDeEnergia = 15;
+        p.nivelDeEnergia = 20;
 
         Hechizos.add(p);
 
@@ -219,24 +240,24 @@ public class JuegoHarryPotter {
 
         CapaDeInvisibilidad capa = new CapaDeInvisibilidad("Capa de invisibilidad");
         capa.amplificadorDeDaño = 0;
-        capa.amplificadorDeSalud = 20;
+        capa.amplificadorDeSalud = 2;
         capa.numeroDeArtefacto = 1;
         Artefactos.add(capa);
 
         PiedraDeResurreccion piedra = new PiedraDeResurreccion("Piedra de la resurrección");
         piedra.amplificadorDeDaño = 0;
-        piedra.amplificadorDeSalud = 100;
+        piedra.amplificadorDeSalud = 2;
         piedra.numeroDeArtefacto = 2;
         Artefactos.add(piedra);
 
         VaritaDeSauco varita = new VaritaDeSauco("Varita de Sauco");
-        varita.amplificadorDeDaño = 20;
+        varita.amplificadorDeDaño = 2;
         varita.amplificadorDeSalud = 0;
         varita.numeroDeArtefacto = 3;
         Artefactos.add(varita);
 
         Horrocrux horrocrux = new Horrocrux("Diario de Tom Riddle");
-        horrocrux.amplificadorDeDaño = 20;
+        horrocrux.amplificadorDeDaño = 1;
         horrocrux.amplificadorDeSalud = 0;
         horrocrux.numeroDeArtefacto = 4;
         Artefactos.add(horrocrux);
@@ -482,24 +503,6 @@ public class JuegoHarryPotter {
         return null;
 
     }
-
-    public int nivelDeEnergia(Personaje p, Hechizo h) {
-
-        p.energiaMagica = p.energiaMagica - h.nivelDeEnergia;
-
-        return p.energiaMagica;
-
-    }
-
-    public static void ArtefactoAmplicadorDeSalud(Artefacto a, Personaje p) {
-        p.salud = p.salud + a.amplificadorDeSalud;
-    
-    }
-   
-    public static void ArtefactoAmplificadorDeDanio(Artefacto a, Personaje p){
-        p.salud = p.salud - a.amplificadorDeDaño;
-    }
-
     
     public static void Curarme(Personaje p, Hechizo h) {
         if(h instanceof HechizoCuracion){

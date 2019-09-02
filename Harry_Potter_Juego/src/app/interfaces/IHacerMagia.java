@@ -1,5 +1,8 @@
 package app.interfaces;
 
+import java.util.List;
+
+import app.artefactos.Artefacto;
 import app.personajes.Personaje;
 import app.poderes.Poder;
 import app.poderes.hechizos.Hechizo;
@@ -9,17 +12,17 @@ import app.poderes.hechizos.Hechizo;
  */
 public interface IHacerMagia {
 
-	public void getPoderInicial();
+	Poder getPoderInicial();
 
-    public void setPoderInicial(Poder p);
+    void setPoderInicial(Poder p);
 
-    public void aprender(Hechizo h);
+    void aprender(Hechizo h);
 
-    public void getArtefactos();
+    List<Artefacto> getArtefactos();
 
-    public void atacar(Personaje p, Hechizo h);
+    void atacar(Personaje p, Hechizo h);
 
-    public void atacar(Personaje p, String nombreDeHechizo);
+    void atacar(Personaje p, String nombreDeHechizo);
 
     
 

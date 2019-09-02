@@ -19,19 +19,20 @@ public class Wizard extends Persona implements IHacerMagia {
 
     public List<Artefacto> artefactos = new ArrayList<Artefacto>();
 
-    public static List<Hechizo> hechizosAprendidos = new ArrayList<Hechizo>();
+    public List<Hechizo> hechizosAprendidos = new ArrayList<Hechizo>();
 
-    public static boolean esMagoOscuro = false;
+    public boolean esMagoOscuro = false;
 
     private Poder poderInicial;
-    public int energiaMagica = 1010;
+    public int energiaMagica = 100;
 
     public Wizard(String nombre) {
         super(nombre);
 
     }
 
-    public void getPoderInicial() {
+    public Poder getPoderInicial() {
+        return poderInicial;
 
     }
 
@@ -41,18 +42,34 @@ public class Wizard extends Persona implements IHacerMagia {
 
     }
 
-    public void getArtefactos() {
+    public List<Artefacto> getArtefactos() {
+        return artefactos;
 
     }
 
     public void atacar(Personaje p, Hechizo h) {
-        p.salud = p.salud - h.nivelDeDaño;
 
+        if (this.energiaMagica > h.nivelDeEnergia) {
+            this.energiaMagica -= h.nivelDeEnergia;
+            if(h.esOscuro){
+                h.nivelDeDaño = h.nivelDeDaño*2;
+                this.esMagoOscuro = true;
+            }
+
+            int dañoTotal = h.nivelDeDaño;
+
+            for (Artefacto a : this.artefactos) {
+                dañoTotal *= a.amplificadorDeDaño;
+                
+            }
+            p.salud = p.salud - dañoTotal;
+        }
     }
 
     public void atacar(Personaje p, String nombreDeHechizo) {
 
     }
+
     public void setPoderInicial(Poder p) {
 
         this.poderInicial = p;
@@ -62,15 +79,4 @@ public class Wizard extends Persona implements IHacerMagia {
         p.salud = p.salud + h.nivelDeProteccion;
     }
 
-    public static boolean ComprobarSiEsMagoOscuro() {
-        for (Hechizo r : hechizosAprendidos) {
-            if (r.esOscuro) {
-                esMagoOscuro = true;
-                return esMagoOscuro;
-
-            }
-        }
-        return false;
-
-    }
 }
