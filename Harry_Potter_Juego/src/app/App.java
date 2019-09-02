@@ -132,8 +132,6 @@ public class App {
 
                         atacante = (IHacerMagia) oponenteP;
 
-                        // hechizoAtacante = (Hechizo) ((IHacerMagia))
-
                         hechizoAtacante = JuegoHarryPotter.GetHechizoEscogido(numeroRandom1);
 
                         enemigo = nuevoP;
@@ -142,7 +140,7 @@ public class App {
                                 + hechizoAtacante.nombre);
 
                     }
-                    
+
                     atacante.atacar(enemigo, hechizoAtacante);
 
                     if (enemigo.salud < 0) {

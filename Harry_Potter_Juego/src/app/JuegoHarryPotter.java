@@ -46,8 +46,6 @@ public class JuegoHarryPotter {
 
     public static void CargarPersonaje() {
 
-        
-
         Wizard personaje = new Wizard("Harry Potter");
         personaje.edad = 17;
         personaje.numeroPersonajeSeleccionado = 1;
@@ -257,7 +255,7 @@ public class JuegoHarryPotter {
         Artefactos.add(varita);
 
         Horrocrux horrocrux = new Horrocrux("Diario de Tom Riddle");
-        horrocrux.amplificadorDeDaño = 1;
+        horrocrux.amplificadorDeDaño = 2;
         horrocrux.amplificadorDeSalud = 0;
         horrocrux.numeroDeArtefacto = 4;
         Artefactos.add(horrocrux);
@@ -428,7 +426,7 @@ public class JuegoHarryPotter {
 
         case 3:
 
-            List<Elfo> listaElfos = buscarElfo();
+            List<Elfo> listaElfos = BuscarElfo();
             for (Elfo e : listaElfos) {
                 System.out.println(e.numeroPersonajeSeleccionado + " " + e.nombre);
 
@@ -472,7 +470,7 @@ public class JuegoHarryPotter {
         return listaCriaturas;
     }
 
-    public static List<Elfo> buscarElfo() {
+    public static List<Elfo> BuscarElfo() {
         List<Elfo> listaElfos = new ArrayList<>();
 
         for (Personaje p : Personajes) {
@@ -503,11 +501,11 @@ public class JuegoHarryPotter {
         return null;
 
     }
-    
+
     public static void Curarme(Personaje p, Hechizo h) {
-        if(h instanceof HechizoCuracion){
-        p.salud = p.salud + h.nivelDeCuracion;
+        if (h instanceof HechizoCuracion) {
+            p.salud = p.salud + h.nivelDeCuracion;
         }
     }
-    
+
 }

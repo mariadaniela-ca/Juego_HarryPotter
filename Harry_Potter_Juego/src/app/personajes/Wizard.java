@@ -50,19 +50,40 @@ public class Wizard extends Persona implements IHacerMagia {
     public void atacar(Personaje p, Hechizo h) {
 
         if (this.energiaMagica > h.nivelDeEnergia) {
+
             this.energiaMagica -= h.nivelDeEnergia;
-            if(h.esOscuro){
-                h.nivelDeDaño = h.nivelDeDaño*2;
+
+            if (h.esOscuro) {
+                h.nivelDeDaño = h.nivelDeDaño * 2;
                 this.esMagoOscuro = true;
             }
 
             int dañoTotal = h.nivelDeDaño;
 
             for (Artefacto a : this.artefactos) {
-                dañoTotal *= a.amplificadorDeDaño;
-                
+                if (a.amplificadorDeDaño > 0) {
+                    dañoTotal *= a.amplificadorDeDaño;
+                }
             }
-            p.salud = p.salud - dañoTotal;
+
+            int curacionTotal = 0;
+
+            if (p instanceof IHacerMagia) {
+
+                if (((IHacerMagia) p).getArtefactos().size() > 0) {
+
+                    curacionTotal = h.nivelDeDaño;
+                    for (Artefacto ar : ((IHacerMagia) p).getArtefactos()) {
+                        if (ar.amplificadorDeSalud > 0) {
+                            curacionTotal /= ar.amplificadorDeSalud;
+                        }
+                    }
+                }
+                System.out.println("atacante : " + this.nombre + " el enemigo es: " + p.nombre + " da;o total: "
+                        + dañoTotal + " curacion total: " + curacionTotal);
+                p.salud = p.salud - dañoTotal + curacionTotal;
+
+            }
         }
     }
 

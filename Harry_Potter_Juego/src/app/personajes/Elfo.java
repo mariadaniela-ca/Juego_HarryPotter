@@ -43,6 +43,7 @@ public class Elfo extends Criatura implements IHacerMagia{
 
     public void atacar(Personaje p, Hechizo h) {
 
+
     }
 
    
