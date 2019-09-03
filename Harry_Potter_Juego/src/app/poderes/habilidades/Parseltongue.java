@@ -7,5 +7,10 @@ import app.poderes.Poder;
  */
 public class Parseltongue extends Poder {
 
+    public Parseltongue(String poderInicial) {
+        super(poderInicial);
+        
+    }
+
     
 }

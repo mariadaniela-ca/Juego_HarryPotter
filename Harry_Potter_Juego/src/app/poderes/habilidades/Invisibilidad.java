@@ -7,5 +7,10 @@ import app.poderes.Poder;
  */
 public class Invisibilidad extends Poder {
 
+    public Invisibilidad(String poderInicial) {
+        super(poderInicial);
+       
+    }
+
     
 }

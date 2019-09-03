@@ -8,14 +8,12 @@ import app.interfaces.IHacerMagia;
 import app.poderes.Poder;
 import app.poderes.hechizos.Hechizo;
 import app.poderes.hechizos.hechizosdefensa.HechizoDefensa;
-import app.transportes.Escoba;
+
 
 /**
  * Wizard
  */
 public class Wizard extends Persona implements IHacerMagia {
-
-    public Escoba escoba; // llamar a la lista escoba
 
     public List<Artefacto> artefactos = new ArrayList<Artefacto>();
 
@@ -23,7 +21,7 @@ public class Wizard extends Persona implements IHacerMagia {
 
     public boolean esMagoOscuro = false;
 
-    private Poder poderInicial;
+    public Poder poderInicial;
     public int energiaMagica = 100;
 
     public Wizard(String nombre) {
@@ -66,28 +64,30 @@ public class Wizard extends Persona implements IHacerMagia {
                 }
             }
 
-            int curacionTotal = 0;
-
-            if (p instanceof IHacerMagia) {
-
-                if (((IHacerMagia) p).getArtefactos().size() > 0) {
-
-                    curacionTotal = h.nivelDeDaño;
-                    for (Artefacto ar : ((IHacerMagia) p).getArtefactos()) {
+            if (p instanceof Wizard) {
+                if (((Wizard) p).getArtefactos().size() > 0) {
+                    for (Artefacto ar : ((Wizard) p).getArtefactos()) {
                         if (ar.amplificadorDeSalud > 0) {
-                            curacionTotal /= ar.amplificadorDeSalud;
+                            dañoTotal /= ar.amplificadorDeSalud;
                         }
                     }
                 }
-                System.out.println("atacante : " + this.nombre + " el enemigo es: " + p.nombre + " da;o total: "
-                        + dañoTotal + " curacion total: " + curacionTotal);
-                p.salud = p.salud - dañoTotal + curacionTotal;
-
             }
+
+            p.salud -= dañoTotal;
         }
     }
 
     public void atacar(Personaje p, String nombreDeHechizo) {
+        Hechizo hechizito = null;
+        for (Hechizo h : hechizosAprendidos) {
+            if (h.nombre.equals(nombreDeHechizo)) {
+                hechizito=h;
+                break;
+            }
+        }
+
+        atacar(p,hechizito);
 
     }
 

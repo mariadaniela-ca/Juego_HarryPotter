@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import app.artefactos.Artefacto;
 import app.interfaces.IHacerMagia;
+import app.personajes.Persona;
 import app.personajes.Personaje;
 import app.poderes.hechizos.Hechizo;
 import app.poderes.hechizos.hechizoscuracion.HechizoCuracion;
@@ -26,6 +27,7 @@ public class App {
 
         int hechizoElegido1;
 
+        JuegoHarryPotter.CargarHechizos();
         JuegoHarryPotter.CargarPersonaje();
 
         System.out.println("    Tenemos 4 tipos de personajes: 1 wizards 2 Criaturas 3 Elfos 4 Muggles");
@@ -60,23 +62,24 @@ public class App {
 
             IHacerMagia nuevoSerMagico = ((IHacerMagia) nuevoP);
 
-            JuegoHarryPotter.CargarArtefacto();
-            System.out.println("Ahora, vamos a escoger 1 artefacto mágico");
+            if (nuevoP instanceof Persona) {
 
-            System.out.println("Este artefacto te ayudará a protegerte o a atacar a tu enemigo con mas potencia");
+                JuegoHarryPotter.CargarArtefacto();
+                System.out.println("Ahora, vamos a escoger 1 artefacto mágico");
 
-            JuegoHarryPotter.MostrarArtefactos();
+                System.out.println("Este artefacto te ayudará a protegerte o a atacar a tu enemigo con mas potencia");
 
-            System.out.println("Elige el numero del artefacto que deseas");
+                JuegoHarryPotter.MostrarArtefactos();
 
-            int numeroArtefacto = Teclado.nextInt();
+                System.out.println("Elige el numero del artefacto que deseas");
 
-            Artefacto artefactoEscogido = JuegoHarryPotter.EscogerArtefacto(numeroArtefacto);
+                int numeroArtefacto = Teclado.nextInt();
 
-            nuevoSerMagico.getArtefactos().add(artefactoEscogido);
-            System.out.println("El artefacto que escogiste fue: " + artefactoEscogido.nombre);
+                Artefacto artefactoEscogido = JuegoHarryPotter.EscogerArtefacto(numeroArtefacto);
 
-            JuegoHarryPotter.CargarHechizos();
+                nuevoSerMagico.getArtefactos().add(artefactoEscogido);
+                System.out.println("El artefacto que escogiste fue: " + artefactoEscogido.nombre);
+            }
 
             if (oponenteP instanceof IHacerMagia) {
 
@@ -94,26 +97,23 @@ public class App {
 
                     if (atacaPrimeroElUno) {
 
-                        if (nuevoP instanceof IHacerMagia) {
-                            System.out.println("Elige el tipo de hechizo que quieres usar: ");
-                            System.out.println(
-                                    " 1 - Hechizo de Ataque\n 2 - Hechizo de Curacion \n 3 - Hechizo de Defensa \n 4 - Hechizo de Ocio ");
+                        System.out.println("Elige el tipo de hechizo que quieres usar: ");
+                        System.out.println(
+                                " 1 - Hechizo de Ataque\n 2 - Hechizo de Curacion \n 3 - Hechizo de Defensa \n 4 - Hechizo de Ocio ");
 
-                            tipoHechizo1 = Teclado.nextInt();
+                        tipoHechizo1 = Teclado.nextInt();
 
-                            JuegoHarryPotter.ElegirTipoHechizo(tipoHechizo1);
+                        JuegoHarryPotter.ElegirTipoHechizo(tipoHechizo1);
 
-                            System.out.println("Escoge el hechizo: ");
+                        System.out.println("Escoge el hechizo: ");
 
-                            hechizoElegido1 = Teclado.nextInt();
+                        hechizoElegido1 = Teclado.nextInt();
 
-                            hechizoAtacante = JuegoHarryPotter.GetHechizoEscogido(hechizoElegido1);
+                        hechizoAtacante = JuegoHarryPotter.GetHechizoEscogido(hechizoElegido1);
 
-                            atacante = (IHacerMagia) nuevoP;
+                        atacante = (IHacerMagia) nuevoP;
 
-                            atacante.aprender(hechizoAtacante);
-
-                        }
+                        atacante.aprender(hechizoAtacante);
 
                         enemigo = oponenteP;
 

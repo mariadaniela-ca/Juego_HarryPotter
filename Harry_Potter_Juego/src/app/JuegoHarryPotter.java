@@ -14,6 +14,9 @@ import app.personajes.Elfo;
 import app.personajes.Muggle;
 import app.personajes.Personaje;
 import app.personajes.Wizard;
+import app.poderes.habilidades.Invisibilidad;
+import app.poderes.habilidades.Metamorfosis;
+import app.poderes.habilidades.Parseltongue;
 import app.poderes.hechizos.Hechizo;
 import app.poderes.hechizos.hechizosataque.Cruciatus;
 import app.poderes.hechizos.hechizosataque.HechizoAtaque;
@@ -48,15 +51,17 @@ public class JuegoHarryPotter {
 
         Wizard personaje = new Wizard("Harry Potter");
         personaje.edad = 17;
-        personaje.numeroPersonajeSeleccionado = 1;
         personaje.salud = 100;
         personaje.energiaMagica = 100;
+        personaje.poderInicial = new Parseltongue("Parseltongue");
+        personaje.numeroPersonajeSeleccionado = 1;
         Personajes.add(personaje);
 
         personaje = new Wizard("Hermione Granger");
         personaje.edad = 17;
         personaje.salud = 100;
         personaje.energiaMagica = 100;
+        personaje.poderInicial = new Invisibilidad("Invisibilidad");
         personaje.numeroPersonajeSeleccionado = 2;
 
         Personajes.add(personaje);
@@ -65,6 +70,7 @@ public class JuegoHarryPotter {
         personaje.edad = 17;
         personaje.salud = 100;
         personaje.energiaMagica = 100;
+        personaje.poderInicial = new Invisibilidad("Invisibilidad");
         personaje.numeroPersonajeSeleccionado = 3;
         Personajes.add(personaje);
 
@@ -72,6 +78,7 @@ public class JuegoHarryPotter {
         personaje.edad = 47;
         personaje.salud = 100;
         personaje.energiaMagica = 120;
+        personaje.poderInicial = new Metamorfosis("Metamorfosis");
         personaje.numeroPersonajeSeleccionado = 4;
         Personajes.add(personaje);
 
@@ -93,6 +100,8 @@ public class JuegoHarryPotter {
         elfo.nivelDeDaño = 50;
         elfo.salud = 100;
         elfo.energiaMagica = 100;
+        elfo.poderInicial = new Invisibilidad("Invisibilidad");
+
         elfo.numeroPersonajeSeleccionado = 7;
         Personajes.add(elfo);
 
@@ -100,6 +109,7 @@ public class JuegoHarryPotter {
         elfo.nivelDeDaño = 40;
         elfo.salud = 100;
         elfo.energiaMagica = 100;
+        elfo.poderInicial = new Parseltongue("Parseltongue");
         elfo.numeroPersonajeSeleccionado = 8;
         Personajes.add(elfo);
 

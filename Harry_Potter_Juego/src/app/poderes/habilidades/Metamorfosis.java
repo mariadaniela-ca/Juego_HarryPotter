@@ -7,5 +7,10 @@ import app.poderes.Poder;
  */
 public class Metamorfosis extends Poder {
 
+    public Metamorfosis(String poderInicial) {
+        super(poderInicial);
+        
+    }
+
     
 }

@@ -7,6 +7,10 @@ import app.poderes.Poder;
  */
 public class Hechizo extends Poder {
 
+    public Hechizo(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String nombre;
     public boolean esOscuro;
     public int nivelDeDaño;
@@ -14,15 +18,6 @@ public class Hechizo extends Poder {
     public int nivelDeProteccion;
     public int identificador;
     public int nivelDeEnergia;
-
-    public Hechizo(String nombre) {
-        this.nombre = nombre;
-
-    }
-
-    public Hechizo() {
-    }
-
 
     int tipoHechizo1;
     int tipoHechizo2;
@@ -32,11 +27,9 @@ public class Hechizo extends Poder {
     int hechizoElegido2;
     int hechizoElegido3;
 
-    /*public void elegirHechizo(int numero) {
-        for (int i = tipoHechizo1; i <= tipoHechizo3; i++);
-    }
-    */
-
-
+    /*
+     * public void elegirHechizo(int numero) { for (int i = tipoHechizo1; i <=
+     * tipoHechizo3; i++); }
+     */
 
 }
