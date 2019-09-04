@@ -473,8 +473,10 @@ public class JuegoHarryPotter {
         List<Criatura> listaCriaturas = new ArrayList<>();
 
         for (Personaje p : Personajes) {
-            if (p instanceof Criatura) {
+            if (p instanceof Criatura){
+                if(!(p instanceof Elfo)){
                 listaCriaturas.add((Criatura) p);
+                }
             }
         }
         return listaCriaturas;
