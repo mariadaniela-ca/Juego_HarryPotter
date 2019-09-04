@@ -10,7 +10,6 @@ public class Personaje {
     public int salud;
     public int numeroPersonajeSeleccionado;
     public int energiaMagica;
-    
 
     public Personaje(String nombre) {
         this.nombre = nombre;

@@ -9,7 +9,6 @@ import app.poderes.Poder;
 import app.poderes.hechizos.Hechizo;
 import app.poderes.hechizos.hechizosdefensa.HechizoDefensa;
 
-
 /**
  * Wizard
  */
@@ -82,12 +81,12 @@ public class Wizard extends Persona implements IHacerMagia {
         Hechizo hechizito = null;
         for (Hechizo h : hechizosAprendidos) {
             if (h.nombre.equals(nombreDeHechizo)) {
-                hechizito=h;
+                hechizito = h;
                 break;
             }
         }
 
-        atacar(p,hechizito);
+        atacar(p, hechizito);
 
     }
 

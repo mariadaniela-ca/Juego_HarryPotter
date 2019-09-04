@@ -22,6 +22,4 @@ public class Poder {
     public Poder() {
     }
 
-    
-    
 }

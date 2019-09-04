@@ -27,9 +27,4 @@ public class Hechizo extends Poder {
     int hechizoElegido2;
     int hechizoElegido3;
 
-    /*
-     * public void elegirHechizo(int numero) { for (int i = tipoHechizo1; i <=
-     * tipoHechizo3; i++); }
-     */
-
 }

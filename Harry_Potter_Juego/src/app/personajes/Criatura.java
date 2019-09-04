@@ -14,8 +14,15 @@ public class Criatura extends Personaje implements IEsMagico {
 
     }
 
-	public boolean esMagico() {
-        return true;
+ 
+    public boolean esInvisibleAMuggles() {
+        return false;
     }
+
+    public boolean esInvisible() {
+        return false;
+    }
+
+
 
 }
