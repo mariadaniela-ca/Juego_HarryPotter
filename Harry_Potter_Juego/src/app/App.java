@@ -159,6 +159,11 @@ public class App {
             } else {
                 System.out
                         .println(oponenteP.nombre + " no puede usar magia y esta siendo atacado por: " + nuevoP.nombre);
+                System.out.println("    " + oponenteP.nombre + " está implorando piedad");
+                System.out.println("    ...");
+                System.out.println("    ...");
+                System.out.println("    ...");
+                System.out.println("    " + oponenteP.nombre + " murió.");
             }
         } else {
 
